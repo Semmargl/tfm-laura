@@ -1,0 +1,28 @@
+# Configuración del proyecto TFM_Laura. Laura puede editar `email`; el resto lo gestiona el sistema.
+schema: tfm-config/v1
+mode: PENDING            # FULL | LITE-a | LITE-b | LITE-P  (lo escribe la prueba del sistema, GATE-0)
+email: ""                # tu email: lo usan Crossref/OpenAlex/NCBI como "polite pool" (no se comparte con nadie más)
+citation_style: vancouver
+citation_style_status: provisional   # hasta recibir la guía docente (A-4)
+language: es
+caps:                    # topes de peticiones por ejecución (solo APIs gratuitas)
+  warn_after: 50
+  eutils_per_s: 3
+  eutils_per_run: 200
+  openalex_per_run: 500
+  crossref_per_run: 1000
+  clinicaltrials_per_run: 200
+  europepmc_per_run: 200
+feasibility:             # tema viable por defecto (pendiente de validar con el tutor)
+  min_rct_ct: 10
+  no_sr_same_pico_years: 3
+  status: pendiente de validar con tutor
+supervisor_check_pct: 20 # % de registros que revisa el tutor (pendiente de acordar)
+pilot_n: 50              # tamaño del piloto de selección (opcional, decide el tutor)
+recall:
+  seed_min: 10
+  held_out_min: 5
+  ratio_seed: 0.95       # solo si hay más de 10 seed
+  ratio_held_out: 0.90
+verification:
+  max_report_age_days: 7 # verificación de referencias no más vieja que esto antes de entregar

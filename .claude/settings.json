@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python tools/doctor.py:*)",
+      "Bash(python3 tools/doctor.py:*)",
+      "Bash(python .claude/skills/*)",
+      "Bash(python3 .claude/skills/*)",
+      "Bash(py -3 .claude/skills/*)",
+      "Bash(git status:*)",
+      "Bash(git fetch:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Read(**)"
+    ],
+    "deny": [
+      "Edit(raw/**)",
+      "Write(raw/**)",
+      "Bash(git push:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+# Bases de datos y registros (F-07). Europe PMC y OpenAlex NO cuentan para el mínimo de bases.
+schema: tfm-databases/v1
+required:                # obligatorias para el gate G-C3
+  - pubmed
+  - cochrane_central
+  - pedro
+recommended:             # recomendadas; las de pago solo si Euneiz da acceso
+  - lilacs
+  - cinahl
+  - embase
+  - scopus
+  - web_of_science
+supplementary:           # complementarias (NO cuentan en "≥ 3 bases")
+  - europepmc
+  - openalex
+registries:
+  trials:
+    - clinicaltrials_gov   # script (API v2)
+    - who_ictrp            # manual
+  reviews:
+    - prospero             # manual
+    - epistemonikos        # manual
+access:                  # cómo se obtiene cada una
+  pubmed: script
+  cochrane_central: manual
+  pedro: manual
+  lilacs: manual
+  cinahl: manual_if_euneiz
+  embase: manual_if_euneiz
+  scopus: manual_if_euneiz
+  web_of_science: manual_if_euneiz
+  europepmc: script
+  openalex: script
+  clinicaltrials_gov: script
+  who_ictrp: manual
+  prospero: manual
+  epistemonikos: manual
+export_format:           # formato de exportación para import_refs.py
+  pubmed: nbib
+  cochrane_central: pendiente de verificar en B5
+  pedro: pendiente de verificar en B5
+  lilacs: pendiente de verificar en B5

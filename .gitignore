@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+dist/
+.claude/settings.local.json
+_index.md

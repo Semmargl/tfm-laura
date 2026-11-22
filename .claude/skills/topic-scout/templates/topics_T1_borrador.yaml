@@ -1,0 +1,6 @@
+# Borrador de config/topics.yaml (T1 = primera hipotesis; Laura confirma o cambia antes de guardar).
+# Los terminos MeSH ([mh]) estan "pendiente de verificar": topic_counts.py los comprueba con esearch db=mesh
+# y NO guarda conteos si alguno no es un descriptor exacto. Si falla, se corrige con Laura (no de memoria).
+schema: tfm-topics/v1
+topics:
+  - {id: T1, title_es: "Diastasis de los rectos abdominales y hernias abdominales en mujeres", status: borrador, mesh_status: "pendiente de verificar", query: "(\"Diastasis, Muscle\"[mh] OR \"Hernia, Ventral\"[mh] OR \"Hernia, Abdominal\"[mh] OR diastasis recti[tiab] OR rectus abdominis diastasis[tiab] OR abdominal hernia*[tiab]) AND (women[tiab] OR female[tiab] OR postpartum[tiab])", ctgov_cond: "diastasis recti", epmc_query: "diastasis recti AND (hernia OR women)"}

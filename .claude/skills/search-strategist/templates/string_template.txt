@@ -1,0 +1,7 @@
+// Plantilla de cadena PubMed. Las líneas que empiezan por // son comentarios.
+// Una sola línea combinada, o líneas numeradas (1. ... / #1 AND #2) que se expanden al ejecutar.
+// Operadores en MAYÚSCULAS; frases entre comillas con su etiqueta: "pelvic floor"[tiab]
+// Cada término [mh] se valida contra db=mesh; no escribas MeSH de memoria: contrástalos en el MeSH Browser.
+1. ("Concepto1 descriptor"[mh] OR "concepto1 texto libre"[tiab])
+2. ("Concepto2 descriptor"[mh] OR "concepto2 texto libre"[tiab])
+3. #1 AND #2

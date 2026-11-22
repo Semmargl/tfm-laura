@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<!--
+  Plantilla de panel (un solo archivo, sin internet). build_panel.py rellena {{...}}.
+  LITE-b: Claude copia esta plantilla y escribe a mano cada cifra como
+    <span class="num" data-journal-id="J-0007" data-field="query.count" data-value="123">123</span>
+  copiando el valor DEL DIARIO (nunca de la conversacion). Laura comprueba el 100 % con templates/checklist_numeros_LITE.md.
+-->
+<style>
+  :root { --bg:#f7f7f5; --fg:#1d1d1b; --muted:#6a6a64; --card:#ffffff; --line:#dcdcd6; --acc:#2f6f8f; --ok:#1f7a45; --no:#b3261e; --nd:#8a6d00; --bar:#2f6f8f; --barp:#9ec3d6; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#161716; --fg:#ecece8; --muted:#a3a39b; --card:#202221; --line:#383b39; --acc:#7fb6d3; --ok:#6fcf97; --no:#f2877f; --nd:#e0c15a; --bar:#7fb6d3; --barp:#49697a; } }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:20px 16px 40px; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width:1040px; margin:0 auto; }
+  h1 { font-size:1.4rem; margin:0 0 4px; } h3 { margin:0 0 8px; font-size:1.1rem; } h4 { margin:14px 0 4px; font-size:.9rem; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
+  .muted { color:var(--muted); font-size:.88rem; } .nd { color:var(--nd); font-style:italic; }
+  .story { background:var(--card); border:1px solid var(--line); border-left:4px solid var(--acc); border-radius:6px; padding:8px 14px; margin:14px 0; }
+  .sig { font-weight:600; color:var(--acc); }
+  table.cmp { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--line); margin:10px 0 18px; font-size:.92rem; }
+  .cmp th, .cmp td { border-bottom:1px solid var(--line); padding:6px 8px; text-align:left; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:8px; }
+  .kpi { border:1px solid var(--line); border-radius:6px; padding:6px 8px; } .kpi .k { display:block; font-size:.78rem; color:var(--muted); } .kpi b { font-size:1.25rem; }
+  .num { font-variant-numeric:tabular-nums; cursor:help; }
+  .badge { display:inline-block; border:1px solid currentColor; border-radius:12px; padding:1px 9px; font-size:.82rem; margin:2px 2px 2px 0; }
+  .badge.ok { color:var(--ok); } .badge.no { color:var(--no); } .badge.nd { color:var(--nd); }
+  svg.bars { width:100%; height:auto; max-width:420px; } svg.bars .bar { fill:var(--bar); } svg.bars .bar.part { fill:var(--barp); }
+  svg.bars text { fill:var(--fg); font-size:9px; } svg.bars .yr { fill:var(--muted); }
+  ul.plain { list-style:none; padding:0; margin:0; } pre { white-space:pre-wrap; word-break:break-word; background:var(--bg); padding:8px; border-radius:6px; font-size:.82rem; }
+  a { color:var(--acc); } code { background:var(--bg); padding:0 4px; border-radius:3px; }
+  .wm { border:2px dashed var(--no); color:var(--no); font-weight:700; text-align:center; padding:8px; margin:10px 0; letter-spacing:.04em; }
+  .flow { display:flex; flex-direction:column; align-items:center; gap:4px; } .flow .box { border:1px solid var(--line); background:var(--card); border-radius:6px; padding:8px 18px; text-align:center; min-width:240px; } .arrow { color:var(--muted); }
+  footer { margin-top:22px; color:var(--muted); font-size:.82rem; }
+</style>
+</head>
+<body data-panel="{{PANEL}}">
+<main>
+  <h1>{{TITLE}}</h1>
+  <p class="muted">Proyecto TFM — Laura. Solo cifras del diario (<span class="jid">journal.jsonl</span>). Si algo no tiene número, aquí pone «sin datos».</p>
+  <section class="story">{{STORY}}</section>
+  {{TABLE}}
+  <section class="cards">
+{{BODY}}
+  </section>
+  <footer>{{NOTE}}</footer>
+</main>
+</body>
+</html>
